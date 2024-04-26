@@ -348,7 +348,7 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 	
 	let commentPatternAbout = hx.commands.registerCommand('placeholder.placeholderAbout', () => {
-	    hx.env.openExternal('https://ext.dcloud.net.cn/search?q=%E5%8D%A0%E4%BD%8D%E5%8A%A9%E6%89%8B');
+	    hx.env.openExternal('https://ext.dcloud.net.cn/plugin?name=hbxw-placeholder');
 	});
 	context.subscriptions.push(commentPatternAbout);
 }

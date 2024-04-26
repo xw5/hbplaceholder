@@ -3,8 +3,8 @@
 	"name": "placeholder",
 	"description": "一个快速生成文本、图片占位符的插件",
 	"displayName": "占位符助手",
-	"version": "0.0.1",
-	"publisher": "xw",
+	"version": "0.0.2",
+	"publisher": "xiewu",
 	"engines": {
 		"HBuilderX": "^2.7.0"
 	},
@@ -29,6 +29,7 @@
 		"keybindings": [
 		  {
 		    "key": "ctrl+shift+i",
+			"macosx": "command+Shift+i",
 		    "command": "placeholder.placeholder",
 		    "when": "editorTextFocus"
 		  }
@@ -59,6 +60,14 @@
 			}]
 		}
 	},
+	"keywords": [
+        "占位文本",
+        "占位图片",
+        "随机文本",
+        "随机图片",
+        "placeholder"
+    ],
+	"repository": "https://gitee.com/github-9819409/hbplaceholder.git",
 	"extensionDependencies": [
 		"plugin-manager"
 	],
