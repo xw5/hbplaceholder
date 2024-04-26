@@ -1,0 +1,71 @@
+{
+	"id": "hbxw-placeholder",
+	"name": "placeholder",
+	"description": "一个快速生成文本、图片占位符的插件",
+	"displayName": "占位符助手",
+	"version": "0.0.1",
+	"publisher": "xw",
+	"engines": {
+		"HBuilderX": "^2.7.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./extension",
+	"activationEvents": [
+		"onCommand:placeholder.placeholder"
+	],
+	"contributes": {
+		"commands": [
+		  {
+		    "command": "placeholder.placeholder",
+		    "title": "placeholder"
+		  }
+		],
+		"keybindings": [
+		  {
+		    "key": "ctrl+shift+i",
+		    "command": "placeholder.placeholder",
+		    "when": "editorTextFocus"
+		  }
+		],
+		"menus": {
+			"editor/context": [
+			  {
+			    "command": "placeholder.placeholder",
+				"title": "插入占位符",
+			    "group": "z_commands",
+			    "when": "editorTextFocus"
+			  }
+			]
+		},
+		"configuration": {
+		  "type": "object",
+		  "title": "placeholder",
+		  "properties": {
+		      "placeholder.img": {
+		        "type": "string",
+		        "default": "url",
+		        "enum": ["url", "img"],
+		        "description": "点位图是生成图片地址还是img标签"
+		      }
+		  }
+		}
+	},
+	"extensionDependencies": [
+		"plugin-manager"
+	],
+	"devDependencies": {
+	  "@types/mocha": "^10.0.6",
+	  "@types/node": "18.x",
+	  "@types/vscode": "^1.46.0",
+	  "@vscode/test-cli": "^0.0.6",
+	  "@vscode/test-electron": "^2.3.9",
+	  "eslint": "^8.56.0",
+	  "typescript": "^5.3.3"
+	},
+	"dependencies": {
+	  "@faker-js/faker": "^8.4.1",
+	  "mockjs": "^1.1.0"
+	}
+}
