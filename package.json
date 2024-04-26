@@ -13,7 +13,8 @@
 	],
 	"main": "./extension",
 	"activationEvents": [
-		"onCommand:placeholder.placeholder"
+		"onCommand:placeholder.placeholder",
+		"onCommand:placeholder.placeholderAbout"
 	],
 	"contributes": {
 		"commands": [
