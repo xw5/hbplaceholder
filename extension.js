@@ -129,98 +129,98 @@ function activate(context) {
 				hx.window.setStatusBarMessage('你选择插入占位：' + value.label, 3000);
 				selectPick = value.label;
 				if (selectPick === '图片') {
-						const settings = hx.workspace.getConfiguration('placeholder');
-						const snippetImgs = {
-							Picsum: {
-								text: 'https://picsum.photos/300/300.jpg?random='+Date.now(),
-								img: `<img src="https://picsum.photos/300/300.jpg?random=${Date.now()}" alt="">`,
-								image: `<image src="https://picsum.photos/300/300.jpg?random=${Date.now()}" mode="scaleToFill">`
-							},
-							FPOImg: {
-								text: 'https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400',
-								img: '<img src="https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400" alt="">',
-								image: '<img src="https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400" mode="scaleToFill">'
-							},
-							DummyImage: {
-								text: 'https://dummyimage.com/300x300/999999/ff4400.png&text=EXAMPLE',
-								img: '<img src="https://dummyimage.com/300x300/999999/ff4400.png&text=EXAMPLE" alt="">',
-								image: '<image src="https://dummyimage.com/300x300/999999/ff4400.png&text=EXAMPLE" mode="scaleToFill">'
-							},
-							ViaPlaceholder: {
-								text: 'https://via.placeholder.com/640x300/999999/ff4400.png?text=example',
-								img: '<img src="https://via.placeholder.com/640x300/999999/ff4400.png?text=example" alt="">',
-								image: '<image src="https://via.placeholder.com/640x300/999999/ff4400.png?text=example" mode="scaleToFill">'
-							},
-							PlaceholdJp: {
-								text: 'https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE',
-								img: '<img src="https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE" alt="">',
-								image: '<image src="https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE" mode="scaleToFill">'
-							},
-							DevtoolTech: {
-								text: 'https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333',
-								img: '<img src="https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333" alt="">',
-								image: '<image src="https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333" mode="scaleToFill">'
-							},
+					// const settings = hx.workspace.getConfiguration('placeholder');
+					const snippetImgs = {
+						Picsum: {
+							url: 'https://picsum.photos/300/300.jpg?random='+Date.now(),
+							img: `<img src="https://picsum.photos/300/300.jpg?random=${Date.now()}" alt="">`,
+							image: `<image src="https://picsum.photos/300/300.jpg?random=${Date.now()}" mode="scaleToFill">`
+						},
+						FPOImg: {
+							url: 'https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400',
+							img: '<img src="https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400" alt="">',
+							image: '<img src="https://fpoimg.com/300x300?text=example&bg_color=999999&text_color=ff4400" mode="scaleToFill">'
+						},
+						DummyImage: {
+							url: 'https://dummyimage.com/300x300/999999/ff4400.png?text=EXAMPLE',
+							img: '<img src="https://dummyimage.com/300x300/999999/ff4400.png?text=EXAMPLE" alt="">',
+							image: '<image src="https://dummyimage.com/300x300/999999/ff4400.png?text=EXAMPLE" mode="scaleToFill">'
+						},
+						ViaPlaceholder: {
+							url: 'https://via.placeholder.com/640x300/999999/ff4400.png?text=example',
+							img: '<img src="https://via.placeholder.com/640x300/999999/ff4400.png?text=example" alt="">',
+							image: '<image src="https://via.placeholder.com/640x300/999999/ff4400.png?text=example" mode="scaleToFill">'
+						},
+						PlaceholdJp: {
+							url: 'https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE',
+							img: '<img src="https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE" alt="">',
+							image: '<image src="https://placehold.jp/999999/ff4400/300x300.png?text=EXAMPLE" mode="scaleToFill">'
+						},
+						DevtoolTech: {
+							url: 'https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333',
+							img: '<img src="https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333" alt="">',
+							image: '<image src="https://devtool.tech/api/placeholder/300/300?text=示例图片&color=#ffffff&bgColor=#333333" mode="scaleToFill">'
+						},
+					}
+					hx.window.showQuickPick([{
+						label: 'Picsum',
+						description: 'Picsum占位图片',
+						detail: '图片有实际内容，格式jpg/webp'
+					},{
+						label: 'DummyImage',
+						description: 'DummyImage占位图',
+						detail: '纯色图片，格式png/jpg/gif,支持显示文字（不支持中文）'
+					},{
+						label: 'PlaceholdJp',
+						description: 'placehold.jp占位图片',
+						detail: '纯色图片，格式png/jpg/gif/webp,支持显示文字（支持中文）'
+					},{
+						label: 'DevtoolTech',
+						description: 'DevtoolTech占位图',
+						detail: '纯色图片，不支持定义格式,支持显示文字（支持中文）'
+					},{
+						label: 'ViaPlaceholder',
+						description: 'ViaPlaceholder点位图',
+						detail: '纯色图片，格式png/jpg/gif/webp,支持显示文字（不支持中文）'
+					},{
+						label: 'FPOImg',
+						description: 'FPOImg占位图片',
+						detail: '纯色图片，不支持定义格式,支持显示文字（不支持中文）'
+					}]).then((imgValue) => {
+						if (!imgValue) {
+							return;
 						}
+						const imgObj = snippetImgs[imgValue.label];
 						hx.window.showQuickPick([{
-								label: 'Picsum',
-								description: 'Picsum占位图片',
-								detail: '图片有实际内容，格式jpg/webp'
-							},{
-								label: 'DummyImage',
-								description: 'DummyImage占位图',
-								detail: '纯色图片，格式png/jpg/gif,支持显示文字（不支持中文）'
-							},{
-								label: 'PlaceholdJp',
-								description: 'placehold.jp占位图片',
-								detail: '纯色图片，格式png/jpg/gif/webp,支持显示文字（支持中文）'
-							},{
-								label: 'DevtoolTech',
-								description: 'DevtoolTech占位图',
-								detail: '纯色图片，不支持定义格式,支持显示文字（支持中文）'
-							},{
-								label: 'ViaPlaceholder',
-								description: 'ViaPlaceholder点位图',
-								detail: '纯色图片，格式png/jpg/gif/webp,支持显示文字（不支持中文）'
-							},{
-								label: 'FPOImg',
-								description: 'FPOImg占位图片',
-								detail: '纯色图片，不支持定义格式,支持显示文字（不支持中文）'
-							}]).then((imgValue) => {
-								if (!imgValue) {
-									return;
-								}
-								const imgObj = snippetImgs[imgValue.label];
-								hx.window.showQuickPick([{
-										label: 'url',
-										description: '插入url',
-										detail: '插入一个图片url地址'
-									},{
-										label: 'image',
-										description: '插入image',
-										detail: '插入一个带url的图片image标签'
-									},{
-										label: 'img',
-										description: '插入img',
-										detail: '插入一个带url的图片img标签'
-									}]).then((otherValue) => {
-										if (!otherValue) {
-											return;
-										}
-										hx.window.setStatusBarMessage('你选择插入占位：' + otherValue.label, 3000);
-										let selectPick = otherValue.label;
-										// 生成占位文本
-										let insertText = imgObj[selectPick];
-										insertTextAction(insertText);
-									})
-								
-								// hx.window.setStatusBarMessage('你选择插入占位：' + imgValue.description, 3000);
-								// const imgType = settings.get('img');
-								// let snippetString = snippetImgs[imgValue.label][imgType === 'url' ? 'text' : 'img'];
-								// // insertSnippetAction(snippetString);
-								// insertTextAction(snippetString);
-							})
-						return;
+							label: 'url',
+							description: '插入url',
+							detail: '插入一个图片url地址'
+						},{
+							label: 'image',
+							description: '插入image',
+							detail: '插入一个带url的图片image标签'
+						},{
+							label: 'img',
+							description: '插入img',
+							detail: '插入一个带url的图片img标签'
+						}]).then((otherValue) => {
+							if (!otherValue) {
+								return;
+							}
+							hx.window.setStatusBarMessage('你选择插入占位：' + otherValue.label, 3000);
+							let selectPick = otherValue.label;
+							// 生成占位文本
+							let insertText = imgObj[selectPick];
+							insertTextAction(insertText);
+						})
+						
+						// hx.window.setStatusBarMessage('你选择插入占位：' + imgValue.description, 3000);
+						// const imgType = settings.get('img');
+						// let snippetString = snippetImgs[imgValue.label][imgType === 'url' ? 'text' : 'img'];
+						// // insertSnippetAction(snippetString);
+						// insertTextAction(snippetString);
+					})
+					return;
 				}
 				if (selectPick === '其它') {
 					hx.window.showQuickPick([{
@@ -346,6 +346,11 @@ function activate(context) {
 	});
 
 	context.subscriptions.push(disposable);
+	
+	let commentPatternAbout = hx.commands.registerCommand('placeholder.placeholderAbout', () => {
+	    hx.env.openExternal('https://ext.dcloud.net.cn/search?q=%E5%8D%A0%E4%BD%8D%E5%8A%A9%E6%89%8B');
+	});
+	context.subscriptions.push(commentPatternAbout);
 }
 
 // This method is called when your extension is deactivated

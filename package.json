@@ -20,6 +20,9 @@
 		  {
 		    "command": "placeholder.placeholder",
 		    "title": "placeholder"
+		  }, {
+            "command": "placeholder.placeholderAbout",
+            "title": "关于/评价"
 		  }
 		],
 		"keybindings": [
@@ -37,19 +40,22 @@
 			    "group": "z_commands",
 			    "when": "editorTextFocus"
 			  }
-			]
-		},
-		"configuration": {
-		  "type": "object",
-		  "title": "placeholder",
-		  "properties": {
-		      "placeholder.img": {
-		        "type": "string",
-		        "default": "url",
-		        "enum": ["url", "img"],
-		        "description": "点位图是生成图片地址还是img标签"
-		      }
-		  }
+			],
+			"menubar/tool": [{
+			    "title": "占位符",
+			    "group": "ext_settings",
+			    "id": "placeholder"
+			}, {
+			    "command": "placeholder.placeholder",
+			    "title": "插入占位符",
+			    "group": "placeholder@1"
+			}, {
+			    "group": "placeholder@3"
+			}, {
+			    "command": "placeholder.placeholderAbout",
+			    "title": "关于/评价",
+			    "group": "placeholder@4"
+			}]
 		}
 	},
 	"extensionDependencies": [
