@@ -3,7 +3,7 @@
 	"name": "placeholder",
 	"description": "一个快速生成文本、图片占位符的插件",
 	"displayName": "占位符助手",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "xiewu",
 	"engines": {
 		"HBuilderX": "^2.7.0"
